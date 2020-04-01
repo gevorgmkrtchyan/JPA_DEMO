@@ -1,13 +1,18 @@
 package com.example.JPA.Demo;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String isbn;
     private String publisher;
+    @ManyToMany(mappedBy = "authors")
     private Set<Author> authors = new HashSet<>();
 
     public Book(String title, String isbn, String publisher) {
