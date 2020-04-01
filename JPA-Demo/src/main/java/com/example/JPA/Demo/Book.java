@@ -12,7 +12,7 @@ public class Book {
     private String title;
     private String isbn;
     private String publisher;
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany
     private Set<Author> authors = new HashSet<>();
 
     public Book(String title, String isbn, String publisher) {
